@@ -1,7 +1,8 @@
 pipeline {
     agent {
         node {
-            customWorkspace "/var/www/html/jenkins12345/${JOB_NAME}_${BUILD_NUMBER}"
+            label 'my-defined-label'
+            customWorkspace "/var/www/html/jenkins12345"
         }
     }
     post {
