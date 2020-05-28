@@ -5,6 +5,13 @@ pipeline {
             customWorkspace "/var/www/html/jenkins12345"
         }
     }
+    stages {
+        stage("foo") {
+            steps {
+                echo "Workspace dir is ${pwd()}"
+            }
+        }
+    }
     post {
         cleanup {
             /* clean up our workspace */
