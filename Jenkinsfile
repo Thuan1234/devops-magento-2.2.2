@@ -2,13 +2,27 @@ pipeline {
     agent {
         node {
             label 'g1test'
-            customWorkspace "/var/www/html/g1/customWorkSpace"
+            customWorkspace "/var/www/html/g1/jekins/m222"
         }
     }
     stages {
         stage("foo") {
             steps {
                 echo "Workspace dir is ${pwd()}"
+            }
+        }
+    }
+    post {
+        cleanup {
+            /* clean up our workspace */
+            deleteDir()
+            /* clean up tmp directory */
+            dir("${workspace}@tmp") {
+                deleteDir()
+            }
+            /* clean up script directory */
+            dir("${workspace}@script") {
+                deleteDir()
             }
         }
     }
