@@ -2,7 +2,7 @@ pipeline {
     agent {
         node {
             label 'g1test'
-            customWorkspace "/var/www/html/g1/jekins/m222"
+            customWorkspace "/var/www/html/g1/jenkins"
         }
     }
     stages {
